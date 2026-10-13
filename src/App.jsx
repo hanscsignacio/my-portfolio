@@ -1,8 +1,9 @@
+import Hero from "./components/Hero/Hero";
+
 function App() {
   return (
     <main>
-      <h1>Personal Portfolio</h1>
-      <p>Portfolio under development.</p>
+      <Hero />
     </main>
   );
 }
