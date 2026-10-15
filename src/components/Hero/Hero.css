@@ -1,38 +1,36 @@
+main.hero_wrap {
+  position: relative;
+  overflow-x: hidden;
+  height: 100dvh;
+  isolation: isolate;
+}
 .hero {
-  --hero-gutter: clamp(1.5rem, 4.5vw, 5rem);
-  --hero-band-height: clamp(6rem, 14vh, 8rem);
+  --hero-gutter: clamp(1.5rem, 4.5vw, 5rem); /* Space on left side */
+  --hero-band-height: clamp(6rem, 14dvh, 8rem);
 
   position: relative;
-  isolation: isolate;
   width: 100%;
-  height: 100svh;
-  min-height: 40rem;
+  height: auto;
+
+  padding-bottom: var(--hero-band-height);
+
   overflow: hidden;
   background: #fafafa;
   color: #080808;
 }
 
-/* Bottom background */
-
-.hero__dark-panel {
-  position: absolute;
-  z-index: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: var(--hero-band-height);
-  background: #050505;
+.hero_main {
+  position: relative;
+  padding-bottom: clamp(3.5rem, 10dvh, 5rem);
 }
-
-/* Branding */
 
 .hero__branding {
   position: absolute;
   z-index: 4;
-  top: clamp(2rem, 6vh, 3.5rem);
   left: var(--hero-gutter);
+  top: clamp(2rem, 6vh, 3.5rem);
   margin: 0;
-  font-size: clamp(0.65rem, 0.85vw, 0.85rem);
+  font-size: clamp(0.85rem, 0.85vw, 1rem);
   font-weight: 600;
   letter-spacing: 0.26em;
   white-space: nowrap;
@@ -43,12 +41,12 @@
 .hero__portrait {
   position: absolute;
   z-index: 2;
-  right: 10%;
+  right: 9.5%;
   bottom: -1.5rem;
+  top: 5%;
   width: min(60vw, 56rem);
   pointer-events: none;
 }
-
 .hero__portrait img {
   display: block;
   width: 100%;
@@ -58,13 +56,11 @@
 }
 
 /* Main content */
-
 .hero__content {
-  position: absolute;
+  position: relative;
   z-index: 3;
-  top: clamp(5.3rem, 11vh, 8rem);
+  margin-top: clamp(5.3rem, 11vh, 8rem);
   left: var(--hero-gutter);
-  width: 68%;
 }
 
 .hero__name {
@@ -79,17 +75,14 @@
   display: block;
   width: max-content;
 }
-
 .hero__name-line:first-child {
   font-size: clamp(8rem, 16.5vw, 15.5rem);
 }
-
 .hero__name-line:last-child {
   font-size: clamp(7rem, 15.2vw, 14.5rem);
 }
 
 /* Introduction */
-
 .hero__intro {
   margin-top: 0.65rem;
 }
@@ -116,14 +109,13 @@
   position: absolute;
   z-index: 4;
   top: 27%;
-  right: clamp(2rem, 5vw, 5rem);
+  right: clamp(2rem, 4vw, 5rem);
   display: flex;
   width: max-content;
   flex-direction: column;
   align-items: center;
   gap: 1.75rem;
 }
-
 .hero__student,
 .hero__keywords {
   margin: 0;
@@ -132,16 +124,26 @@
   line-height: 1.65;
   letter-spacing: 0.16em;
 }
-
 .hero__student span,
 .hero__keywords span {
   display: block;
 }
-
 .hero__side-divider {
   width: 1px;
   height: clamp(2.5rem, 7vh, 4rem);
   background: #333;
+}
+
+/* Bottom background */
+
+.hero__dark-panel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--hero-band-height);
+  background: #050505;
 }
 
 /* CTA buttons */
@@ -149,8 +151,9 @@
 .hero__actions {
   position: absolute;
   z-index: 5;
-  bottom: calc((var(--hero-band-height) - 4rem) / 2);
+  top: 50%;
   left: var(--hero-gutter);
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -177,14 +180,27 @@
     color 0.25s ease;
 }
 
+.hero__button:hover {
+  transform: translateY(-3px);
+}
+
 .hero__button--primary {
   background: #fff;
   color: #080808;
 }
 
+.hero__button--primary:hover {
+  background: #e7e7e7;
+}
+
 .hero__button--outline {
   background: transparent;
   color: #fff;
+}
+
+.hero__button--outline:hover {
+  background: #fff;
+  color: #080808;
 }
 
 .hero__button:focus-visible {
