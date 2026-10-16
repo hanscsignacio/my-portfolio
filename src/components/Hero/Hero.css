@@ -28,9 +28,9 @@ main.hero_wrap {
   position: absolute;
   z-index: 4;
   left: var(--hero-gutter);
-  top: clamp(2rem, 6vh, 3.5rem);
+  top: clamp(2rem, 6dvh, 3.5rem);
   margin: 0;
-  font-size: clamp(0.85rem, 0.85vw, 1rem);
+  font-size: clamp(0.85rem, 0.85dvw, 1rem);
   font-weight: 600;
   letter-spacing: 0.26em;
   white-space: nowrap;

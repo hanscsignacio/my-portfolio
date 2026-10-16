@@ -16,3 +16,84 @@
     max-width: 26rem;
   }
 }
+
+@media (max-width: 820px) {
+  .hero__branding {
+    top: clamp(1rem, 4.5dvw, 2.5rem);
+    font-size: clamp(0.6rem, 2dvw, 1rem);
+  }
+
+  .hero_main {
+    position: static;
+    padding-bottom: 0;
+  }
+  .hero__dark-panel {
+    position: static;
+    height: auto;
+    padding: clamp(1rem, 3dvw, 2rem) 0 clamp(1.5rem, 5dvw, 3rem);
+  }
+  .hero__actions {
+    position: relative;
+    top: auto;
+    transform: none;
+    gap: 0.5rem;
+  }
+  .hero__portrait {
+    width: clamp(10rem, 114dvw, 70rem);
+    left: -15%;
+    top: 4%;
+  }
+
+  .hero_wrap {
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .hero {
+    background: linear-gradient(#fafafa 100dvw, #050505 100dvw);
+    padding-bottom: 0;
+  }
+
+  .hero__content {
+    margin-top: 92.5dvw;
+    color: #fff;
+  }
+
+  .hero__name-line:first-child,
+  .hero__name-line:last-child {
+    font-size: clamp(5rem, 90px, 15rem);
+  }
+
+  .hero__intro {
+    margin-top: 0.4rem;
+  }
+
+  .hero__role {
+    font-weight: 500;
+    font-size: clamp(1.2rem, 4dvw, 5rem);
+  }
+
+  .hero__description {
+    margin-top: 0.2rem;
+    font-size: clamp(0.6rem, 2.4dvw, 2rem);
+  }
+
+  .hero__side-details {
+    top: 25vw;
+  }
+
+  .hero__button--primary,
+  .hero__button--outline {
+    min-height: clamp(2.5rem, 6.3dvh, 4rem);
+    padding: 0 clamp(1rem, 5dvw, 4rem);
+  }
+}
+
+@media (max-width: 400px) {
+  .hero__intro {
+    max-width: 90dvw;
+  }
+  .hero__side-details {
+    right: 1rem;
+  }
+}
