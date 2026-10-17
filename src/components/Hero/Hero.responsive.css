@@ -99,6 +99,23 @@
     min-height: clamp(2.5rem, 6.3dvh, 4rem);
     padding: 0 clamp(1rem, 5dvw, 4rem);
   }
+
+  /* Compact animation preview */
+  .hero-preview {
+    right: 0.5rem;
+    bottom: 0.5rem;
+    max-width: calc(100vw - 1rem);
+    padding: 0.6rem;
+  }
+
+  .hero-preview__label {
+    font-size: 0.55rem;
+  }
+
+  .hero-preview__controls button {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.65rem;
+  }
 }
 
 @media (max-width: 400px) {

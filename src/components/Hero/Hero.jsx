@@ -1,10 +1,53 @@
+import { useEffect, useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useMotion } from "../../hooks/useMotion";
+import { createHeroEntrance } from "../../animations/heroEntrance";
 import portrait from "../../assets/images/portrait-transparent.png";
+
 import "./Hero.css";
 import "./Hero.responsive.css";
 
+gsap.registerPlugin(useGSAP);
+
 function Hero() {
+  const { mode } = useMotion();
+
+  const heroRef = useRef(null);
+  const timelineRef = useRef(null);
+  const previousModeRef = useRef(mode);
+
+  const [variant, setVariant] = useState("bold");
+  const [replayCount, setReplayCount] = useState(0);
+
+  // Play the selected Hero entrance
+  useGSAP(
+    () => {
+      const timeline = createHeroEntrance(heroRef.current, mode, variant);
+
+      timelineRef.current = timeline;
+
+      return () => {
+        timelineRef.current = null;
+      };
+    },
+    {
+      scope: heroRef,
+      dependencies: [variant, replayCount],
+      revertOnUpdate: true,
+    },
+  );
+
+  // Finish the entrance if the motion mode changes
+  useEffect(() => {
+    if (previousModeRef.current !== mode) {
+      timelineRef.current?.progress(1);
+      previousModeRef.current = mode;
+    }
+  }, [mode]);
+
   return (
-    <div className="hero_wrap">
+    <div className="hero_wrap" ref={heroRef}>
       <section className="hero" id="home" aria-labelledby="hero-heading">
         <p className="hero__branding">PERSONAL PORTFOLIO</p>
         <div className="hero_main">
@@ -44,24 +87,26 @@ function Hero() {
         <div className="hero__dark-panel" aria-hidden="true">
           <div className="hero__actions">
             <a className="hero__button hero__button--primary" href="#work">
-              <span>View work</span>
+              <span className="hero__button-inner">
+                <span>View work</span>
 
-              <svg
-                className="hero__arrow"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M4 12h16M13 5l7 7-7 7" />
-              </svg>
+                <svg
+                  className="hero__arrow"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M4 12h16M13 5l7 7-7 7" />
+                </svg>
+              </span>
             </a>
 
             <a className="hero__button hero__button--outline" href="#contact">
-              Contact me
+              <span className="hero__button-inner">Contact me</span>
             </a>
           </div>
         </div>
@@ -75,6 +120,41 @@ function Hero() {
           draggable="false"
         />
       </div>
+
+      {import.meta.env.DEV && (
+        <div className="hero-preview" aria-label="Hero animation preview">
+          <span className="hero-preview__label">
+            ANIMATION PREVIEW / {mode.toUpperCase()}
+          </span>
+
+          <div className="hero-preview__controls">
+            <button
+              type="button"
+              className={variant === "bold" ? "hero-preview__active" : ""}
+              aria-pressed={variant === "bold"}
+              onClick={() => setVariant("bold")}
+            >
+              A / Bold
+            </button>
+
+            <button
+              type="button"
+              className={variant === "refined" ? "hero-preview__active" : ""}
+              aria-pressed={variant === "refined"}
+              onClick={() => setVariant("refined")}
+            >
+              B / Refined
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setReplayCount((count) => count + 1)}
+            >
+              Replay
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

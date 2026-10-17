@@ -180,6 +180,14 @@
     color 0.25s ease;
 }
 
+/* Separate entrance motion from button hover */
+.hero__button-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
 .hero__button:hover {
   transform: translateY(-3px);
 }
@@ -212,4 +220,60 @@
   width: 1.3em;
   height: 1.3em;
   flex-shrink: 0;
+}
+
+/* Temporary animation preview */
+
+.hero-preview {
+  position: fixed;
+  z-index: 50;
+  right: 1.25rem;
+  bottom: 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.85rem;
+
+  border: 1px solid #555;
+  border-radius: 0.75rem;
+  background: #101010;
+  color: #fff;
+  box-shadow: 0 8px 28px rgb(0 0 0 / 20%);
+}
+
+.hero-preview__label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+}
+
+.hero-preview__controls {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.hero-preview__controls button {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #666;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: #fff;
+
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hero-preview__controls button:hover,
+.hero-preview__controls .hero-preview__active {
+  border-color: #fff;
+  background: #fff;
+  color: #101010;
+}
+
+.hero-preview__controls button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
 }
