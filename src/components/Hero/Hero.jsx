@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useMotion } from "../../hooks/useMotion";
@@ -17,25 +17,16 @@ function Hero() {
   const timelineRef = useRef(null);
   const previousModeRef = useRef(mode);
 
-  const [variant, setVariant] = useState("bold");
-  const [replayCount, setReplayCount] = useState(0);
-
-  // Play the selected Hero entrance
+  // Play the Hero entrance on mount
   useGSAP(
     () => {
-      const timeline = createHeroEntrance(heroRef.current, mode, variant);
-
-      timelineRef.current = timeline;
+      timelineRef.current = createHeroEntrance(heroRef.current, mode);
 
       return () => {
         timelineRef.current = null;
       };
     },
-    {
-      scope: heroRef,
-      dependencies: [variant, replayCount],
-      revertOnUpdate: true,
-    },
+    { scope: heroRef },
   );
 
   // Finish the entrance if the motion mode changes
@@ -120,41 +111,6 @@ function Hero() {
           draggable="false"
         />
       </div>
-
-      {import.meta.env.DEV && (
-        <div className="hero-preview" aria-label="Hero animation preview">
-          <span className="hero-preview__label">
-            ANIMATION PREVIEW / {mode.toUpperCase()}
-          </span>
-
-          <div className="hero-preview__controls">
-            <button
-              type="button"
-              className={variant === "bold" ? "hero-preview__active" : ""}
-              aria-pressed={variant === "bold"}
-              onClick={() => setVariant("bold")}
-            >
-              A / Bold
-            </button>
-
-            <button
-              type="button"
-              className={variant === "refined" ? "hero-preview__active" : ""}
-              aria-pressed={variant === "refined"}
-              onClick={() => setVariant("refined")}
-            >
-              B / Refined
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setReplayCount((count) => count + 1)}
-            >
-              Replay
-            </button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

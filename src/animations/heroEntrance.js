@@ -1,6 +1,6 @@
 import gsap from "gsap";
 
-export function createHeroEntrance(root, mode, variant) {
+export function createHeroEntrance(root, mode) {
   if (!root || mode === "still") return null;
 
   const find = (selector) => root.querySelector(selector);
@@ -122,162 +122,99 @@ export function createHeroEntrance(root, mode, variant) {
     return timeline;
   }
 
-  // Version A: bold, layered editorial reveal
-  if (variant === "bold") {
-    timeline
-      .fromTo(
-        name[0],
-        {
-          y: 65,
-          clipPath: "inset(0% 0% 100% 0%)",
-        },
-        {
-          y: 0,
-          clipPath: "inset(-30% -10% -30% -10%)",
-          duration: 0.95,
-        },
-        0.05,
-      )
-      .fromTo(
-        name[1],
-        {
-          y: 85,
-          clipPath: "inset(0% 0% 100% 0%)",
-        },
-        {
-          y: 0,
-          clipPath: "inset(-30% -10% -30% -10%)",
-          duration: 1.05,
-        },
-        0.22,
-      )
-      .fromTo(
-        portrait,
-        {
-          x: 35,
-          clipPath: "inset(0% 100% 0% 0%)",
-        },
-        {
-          x: 0,
-          clipPath: "inset(0% 0% 0% 0%)",
-          duration: 1.25,
-          ease: "power2.inOut",
-        },
-        0.18,
-      )
-      .from(
-        [branding, student, keywords],
-        {
-          opacity: 0,
-          y: 12,
-          duration: 0.55,
-          stagger: 0.1,
-        },
-        0.7,
-      )
-      .fromTo(
-        divider,
-        {
-          scaleY: 0,
-          transformOrigin: "top center",
-        },
-        {
-          scaleY: 1,
-          duration: 0.7,
-          ease: "power2.inOut",
-        },
-        0.9,
-      )
-      .from(
-        [role, description],
-        {
-          opacity: 0,
-          y: 25,
-          duration: 0.65,
-          stagger: 0.12,
-        },
-        0.98,
-      )
-
-      .from(
-        buttons,
-        {
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.09,
-        },
-        1.32,
-      )
-      .from(
-        buttonInner,
-        {
-          x: -20,
-          duration: 0.5,
-          stagger: 0.09,
-        },
-        1.32,
-      );
-
-    return timeline;
-  }
-
-  // Version B: refined, understated reveal
+  // Full: bold editorial entrance
   timeline
-    .from(
-      name,
+    .fromTo(
+      name[0],
       {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: "power2.out",
+        y: 65,
+        clipPath: "inset(0% 0% 100% 0%)",
       },
-      0,
+      {
+        y: 0,
+        clipPath: "inset(-30% -10% -30% -10%)",
+        duration: 0.95,
+      },
+      0.05,
+    )
+    .fromTo(
+      name[1],
+      {
+        y: 85,
+        clipPath: "inset(0% 0% 100% 0%)",
+      },
+      {
+        y: 0,
+        clipPath: "inset(-30% -10% -30% -10%)",
+        duration: 1.05,
+      },
+      0.22,
     )
     .fromTo(
       portrait,
       {
-        opacity: 0,
-        x: 12,
-        clipPath: "inset(0% 12% 0% 0%)",
+        x: 35,
+        clipPath: "inset(0% 100% 0% 0%)",
       },
       {
-        opacity: 1,
         x: 0,
         clipPath: "inset(0% 0% 0% 0%)",
-        duration: 1.1,
-        ease: "power2.out",
+        duration: 1.25,
+        ease: "power2.inOut",
       },
-      0.12,
+      0.18,
     )
     .from(
-      [branding, student, keywords, divider],
+      [branding, student, keywords],
       {
         opacity: 0,
-        duration: 0.6,
-        stagger: 0.07,
+        y: 12,
+        duration: 0.55,
+        stagger: 0.1,
       },
-      0.42,
+      0.7,
+    )
+    .fromTo(
+      divider,
+      {
+        scaleY: 0,
+        transformOrigin: "top center",
+      },
+      {
+        scaleY: 1,
+        duration: 0.7,
+        ease: "power2.inOut",
+      },
+      0.9,
     )
     .from(
       [role, description],
       {
         opacity: 0,
-        y: 10,
-        duration: 0.6,
-        stagger: 0.1,
+        y: 25,
+        duration: 0.65,
+        stagger: 0.12,
       },
-      0.65,
+      0.98,
     )
+
     .from(
       buttons,
       {
         opacity: 0,
-        y: 10,
-        duration: 0.45,
-        stagger: 0.08,
+        duration: 0.5,
+        stagger: 0.09,
       },
-      0.95,
+      1.32,
+    )
+    .from(
+      buttonInner,
+      {
+        x: -20,
+        duration: 0.5,
+        stagger: 0.09,
+      },
+      1.32,
     );
 
   return timeline;
