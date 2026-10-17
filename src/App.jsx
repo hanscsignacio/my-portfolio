@@ -1,10 +1,17 @@
 import Hero from "./components/Hero/Hero";
+import MotionProvider from "./context/MotionProvider";
+import MotionControl from "./components/MotionControl/MotionControl";
 
 function App() {
   return (
-    <main>
-      <Hero />
-    </main>
+    // Share motion settings with the portfolio
+    <MotionProvider>
+      <MotionControl />
+
+      <main>
+        <Hero />
+      </main>
+    </MotionProvider>
   );
 }
 

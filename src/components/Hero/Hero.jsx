@@ -4,7 +4,7 @@ import "./Hero.responsive.css";
 
 function Hero() {
   return (
-    <main className="hero_wrap">
+    <div className="hero_wrap">
       <section className="hero" id="home" aria-labelledby="hero-heading">
         <p className="hero__branding">PERSONAL PORTFOLIO</p>
         <div className="hero_main">
@@ -75,7 +75,7 @@ function Hero() {
           draggable="false"
         />
       </div>
-    </main>
+    </div>
   );
 }
 

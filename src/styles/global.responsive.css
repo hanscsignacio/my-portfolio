@@ -1,12 +1,25 @@
+/* Reduce motion before JavaScript initializes */
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html:not([data-motion]) {
     scroll-behavior: auto;
   }
 
-  *,
-  *::before,
-  *::after {
+  html:not([data-motion]) *,
+  html:not([data-motion]) *::before,
+  html:not([data-motion]) *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Disable decorative CSS motion in Still mode */
+html[data-motion="still"] {
+  scroll-behavior: auto;
+}
+
+html[data-motion="still"] *,
+html[data-motion="still"] *::before,
+html[data-motion="still"] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
 }
