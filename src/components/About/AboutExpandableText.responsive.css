@@ -1,0 +1,15 @@
+/* Tablet and phone layout. */
+@media (max-width: 820px) {
+  .about-expandable-text__short {
+    font-size: clamp(1.25rem, 3.5vw, 1.625rem);
+  }
+
+  .about-expandable-text__body {
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  .about-expandable-text__paragraph + .about-expandable-text__paragraph {
+    margin-top: 1.5rem;
+  }
+}

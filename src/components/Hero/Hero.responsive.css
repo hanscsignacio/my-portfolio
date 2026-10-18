@@ -44,11 +44,6 @@
     top: 4%;
   }
 
-  .hero_wrap {
-    height: auto !important;
-    overflow: hidden;
-  }
-
   .hero {
     background: linear-gradient(#fafafa 100dvw, #050505 100dvw);
     padding-bottom: 0;

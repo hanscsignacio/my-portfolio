@@ -1,4 +1,7 @@
+// Page sections.
 import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+
 import MotionProvider from "./context/MotionProvider";
 import MotionControl from "./components/MotionControl/MotionControl";
 
@@ -10,6 +13,9 @@ function App() {
 
       <main>
         <Hero />
+
+        {/* About opener. */}
+        <About />
       </main>
     </MotionProvider>
   );

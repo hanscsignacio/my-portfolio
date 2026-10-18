@@ -1,0 +1,113 @@
+/* Tablet and phone layout. */
+@media (max-width: 820px) {
+  .about {
+    --chapter-height: 5rem;
+  }
+
+  .about__chapter {
+    padding-right: calc(var(--page-gutter) + 7rem);
+  }
+
+  .about__chapter-link {
+    gap: 0.6rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+
+  .about__intro {
+    padding: 3rem var(--page-gutter) 6rem;
+  }
+
+  .about__title {
+    font-size: clamp(3.25rem, 18.6vw, 8rem);
+    line-height: 0.98;
+  }
+
+  .about__title-line {
+    display: contents;
+    font-size: inherit;
+  }
+
+  .about__title-break {
+    display: inline;
+  }
+
+  .about__title-see {
+    margin-left: 11%;
+  }
+
+  .about__title-makes {
+    margin-left: 4%;
+  }
+}
+
+/* Narrow phone layout. */
+@media (max-width: 360px) {
+  .about__title {
+    font-size: 18.2vw;
+  }
+}
+
+/* Short desktop layout. */
+@media (min-width: 821px) and (max-height: 700px) {
+  .about__intro {
+    min-height: 40rem;
+  }
+}
+
+/* Personal story: small desktop. */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .about__person {
+    column-gap: 1rem;
+  }
+
+  .about__person-portrait,
+  .about__person-content {
+    grid-column: 5 / -1;
+  }
+}
+
+/* Personal story: tablet and phone. */
+@media (max-width: 820px) {
+  .about__scene {
+    padding: 4.5rem var(--page-gutter);
+  }
+
+  .about__person {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3rem;
+    padding-top: 3rem;
+  }
+
+  .about__person-portrait {
+    grid-column: 1;
+    grid-row: 1;
+    width: 86%;
+    height: clamp(18rem, 88vw, 35rem);
+    justify-self: end;
+  }
+
+  .about__person-title {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: clamp(6rem, 28vw, 10rem);
+  }
+
+  .about__person-title .about__person-prefix {
+    margin-bottom: 0.75rem;
+    font-size: 0.27em;
+  }
+
+  .about__person-content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+/* Narrow phone spacing. */
+@media (max-width: 360px) {
+  .about__scene {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}

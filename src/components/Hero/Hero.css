@@ -1,8 +1,11 @@
+/* Hero page flow and background. */
 .hero_wrap {
   position: relative;
-  overflow-x: hidden;
-  height: 100dvh;
+  height: auto;
+  min-height: min(100dvh, 90vw);
+  overflow: clip;
   isolation: isolate;
+  background: #050505;
 }
 .hero {
   --hero-gutter: clamp(1.5rem, 4.5vw, 5rem); /* Space on left side */
