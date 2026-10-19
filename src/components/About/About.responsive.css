@@ -111,3 +111,49 @@
     padding-bottom: 4rem;
   }
 }
+
+/* Approach: tablet and phone. */
+@media (max-width: 820px) {
+  .about__layers {
+    height: clamp(28rem, 125vw, 36rem);
+  }
+
+  .about__layer {
+    gap: 0.75rem;
+    padding: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .about__layer-caption {
+    font-size: 0.875rem;
+  }
+
+  .about__layer--interface {
+    width: 100%;
+    height: 42%;
+    font-size: clamp(2.75rem, 17vw, 7rem);
+  }
+
+  .about__layer--logic {
+    top: 28%;
+    left: 14%;
+    width: 86%;
+    height: 42%;
+    font-size: clamp(2.75rem, 17vw, 6rem);
+  }
+
+  .about__layer--data {
+    top: 14%;
+    left: 0;
+    font-size: clamp(2.75rem, 17vw, 6rem);
+  }
+
+  .about__approach-content {
+    width: 100%;
+    margin-top: 3rem;
+    margin-left: 0;
+  }
+
+  .about__approach-content .about-expandable-text__paragraph:first-child {
+    font-size: clamp(1.25rem, 3.5vw, 1.625rem);
+  }
+}
