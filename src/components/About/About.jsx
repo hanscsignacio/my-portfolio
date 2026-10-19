@@ -1,6 +1,7 @@
 // About subsections.
 import AboutStory from "./AboutStory";
 import AboutApproach from "./AboutApproach";
+import AboutEducation from "./AboutEducation";
 
 // About styles.
 import "./About.css";
@@ -64,6 +65,9 @@ function About() {
 
       {/* 'Interface, logic, and data.' Section */}
       <AboutApproach />
+
+      {/* 'Education and academic journey.' Section */}
+      <AboutEducation />
     </section>
   );
 }

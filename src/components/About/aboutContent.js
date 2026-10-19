@@ -37,3 +37,20 @@ export const approachContent = {
     "Leadership was also something I developed during college, especially as our capstone project lead. I gained experience coordinating tasks, explaining decisions, and listening to different points of view. Working with different people helped me become more comfortable taking responsibility, supporting teammates, and doing my share to keep the project moving.",
   ],
 };
+
+// Education and school projects.
+export const educationContent = {
+  // Screen-reader label for the description controls.
+  label: "My approach to school projects",
+
+  // Short description.
+  summary:
+    "Since my first year, I’ve tried to do my best in every school project, meet requirements and deadlines, and learn from feedback.",
+
+  // Full description.
+  paragraphs: [
+    "From my first year to now in my fourth year, I’ve tried to give each school project my best effort. I pay attention to the requirements, keep track of deadlines, and review the details before submitting my work.",
+
+    "I try to make improvements where I can. Feedback and lessons from each project help me see what I could do better next time.",
+  ],
+};

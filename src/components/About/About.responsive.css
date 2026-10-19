@@ -157,3 +157,72 @@
     font-size: clamp(1.25rem, 3.5vw, 1.625rem);
   }
 }
+
+/* Education: tablet and phone. */
+@media (max-width: 820px) {
+  .about__education {
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .about__foundation {
+    margin-bottom: 2rem;
+    font-size: 1.125rem;
+  }
+
+  .about__education-year {
+    font-size: clamp(8rem, 43.5vw, 22rem);
+  }
+
+  .about__education-present {
+    top: -0.75rem;
+    right: 0;
+    left: auto;
+    margin-left: 0;
+    font-size: clamp(1.125rem, 2.7vw, 1.5rem);
+  }
+
+  .about__university {
+    grid-column: 2 / -1;
+    transform: translateY(0.35em);
+    font-size: clamp(1.5rem, 7.8vw, 3.5rem);
+  }
+
+  .about__university > span + span {
+    margin-left: 0;
+  }
+
+  .about__degree {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+    width: 91.6667%;
+    margin-top: 3rem;
+    margin-left: 8.3333%;
+  }
+
+  .about__degree dd {
+    font-size: clamp(1.125rem, 3.5vw, 1.5rem);
+  }
+
+  .about__recognition {
+    max-width: 100%;
+    margin-top: 3rem;
+    margin-left: 0;
+  }
+
+  .about__recognition-title {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .about__education-content {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+/* Education: wider-screen placement. */
+@media (min-width: 821px) {
+  .about__education-entry {
+    width: 84%;
+    margin-left: auto;
+  }
+}

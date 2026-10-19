@@ -259,3 +259,137 @@
   line-height: 1.45;
   letter-spacing: -0.03em;
 }
+
+/* Education layout. */
+.about__education {
+  --education-year: #626262;
+
+  padding-top: clamp(4rem, 7vw, 8rem);
+  padding-bottom: clamp(5rem, 9vw, 10rem);
+}
+
+.about__education-entry {
+  max-width: 82rem;
+}
+
+.about__foundation {
+  margin: 0 0 3rem;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+/* Overlapping year and university. */
+.about__education-composition {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: end;
+}
+
+.about__period {
+  position: relative;
+  grid-column: 1 / -1;
+  grid-row: 1;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+}
+
+.about__education-year {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  color: var(--education-year);
+  font-family: var(--font-display);
+  font-size: clamp(16rem, 29vw, 29rem);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+
+.about__education-present {
+  position: absolute;
+  top: 12%;
+  left: 100%;
+  margin-left: 1.25rem;
+  color: var(--about-paper);
+  font-size: clamp(1.375rem, 2.4vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+}
+
+.about__university {
+  position: relative;
+  grid-column: 4 / -1;
+  grid-row: 1;
+  margin: 0;
+  transform: translateY(0.1em);
+  font-size: clamp(2rem, 4.8vw, 5rem);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.about__university > span {
+  display: block;
+}
+
+.about__university > span + span {
+  margin-left: 8%;
+}
+
+/* Degree and major. */
+.about__degree {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  width: 75%;
+  margin: 3rem 0 0 25%;
+}
+
+.about__degree dt,
+.about__recognition-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--about-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.about__degree dd {
+  margin: 0;
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
+/* Academic recognition. */
+.about__recognition {
+  width: max-content;
+  max-width: 90%;
+  margin: 4rem 0 0 8%;
+}
+
+.about__recognition-title {
+  display: block;
+  font-size: clamp(1.75rem, 3.2vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.about__recognition-period {
+  display: block;
+  margin-top: 0.75rem;
+  color: var(--about-muted);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* School-project description. */
+.about__education-content {
+  width: min(92%, 43rem);
+  margin-top: 3rem;
+  margin-left: 8%;
+}
