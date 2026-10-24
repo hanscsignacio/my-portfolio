@@ -1,4 +1,12 @@
-/* Reduce motion before JavaScript initializes */
+/* Tablet and phone */
+@media (max-width: 820px) {
+  /* Shared chapter height */
+  :root {
+    --chapter-height: 5rem;
+  }
+}
+
+/* Device motion preference before JavaScript initializes */
 @media (prefers-reduced-motion: reduce) {
   html:not([data-motion]) {
     scroll-behavior: auto;
@@ -12,7 +20,7 @@
   }
 }
 
-/* Disable decorative CSS motion in Still mode */
+/* Still mode */
 html[data-motion="still"] {
   scroll-behavior: auto;
 }

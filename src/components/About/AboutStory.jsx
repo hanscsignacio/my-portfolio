@@ -1,5 +1,4 @@
 // Portrait, personal content, and expandable text.
-import portrait from "../../assets/images/portrait-transparent.png";
 import { personContent } from "./aboutContent";
 import AboutExpandableText from "./AboutExpandableText";
 
@@ -17,22 +16,17 @@ function AboutStory() {
         id="person-heading"
         aria-label="I’m Hans."
       >
-        <span className="about__person-prefix" aria-hidden="true">
-          I’M
+        <span className="about__person-name-motion" aria-hidden="true">
+          <span className="about__person-prefix">I’M</span>
+          <span>HANS.</span>
         </span>
-        <span aria-hidden="true">HANS.</span>
       </h3>
 
       {/* Portrait image. */}
       <figure className="about__person-portrait">
-        <img
-          src={portrait}
-          alt="Portrait of Hans Christian Ignacio"
-          width="1263"
-          height="1245"
-          loading="lazy"
-          decoding="async"
-        />
+        {/* Reserve the shared portrait's About position. */}
+        <span className="about__portrait-field" aria-hidden="true" />
+        <div className="about__portrait-reveal" aria-hidden="true" />
       </figure>
 
       {/* Expandable personal description. */}

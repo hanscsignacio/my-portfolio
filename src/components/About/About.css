@@ -1,11 +1,5 @@
-/* About colors, spacing, and background. */
+/* About layout and background. */
 .about {
-  --about-ink: #050505;
-  --about-paper: #fafafa;
-  --about-muted: #b5b5b5;
-  --page-gutter: clamp(1.5rem, 4.5vw, 5rem);
-  --chapter-height: 6rem;
-
   position: relative;
   isolation: isolate;
   background: var(--about-ink);
@@ -392,4 +386,76 @@
   width: min(92%, 43rem);
   margin-top: 3rem;
   margin-left: 8%;
+}
+
+/* Closing About layout. */
+.about__direction {
+  padding-top: clamp(4rem, 6vw, 6rem);
+  padding-bottom: clamp(4rem, 7vw, 8rem);
+}
+
+.about__direction-inner {
+  max-width: 82rem;
+}
+
+/* Solid and outlined headline. */
+.about__next {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(7rem, 15vw, 16.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+}
+
+.about__next-line {
+  display: flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.15em;
+}
+
+.about__next-line--build {
+  margin-top: 0.08em;
+  margin-left: 16%;
+}
+
+.about__next-prefix {
+  display: grid;
+  gap: 0.1em;
+  font-size: 0.2em;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+}
+
+.about__next-word {
+  display: block;
+}
+
+@supports (-webkit-text-stroke: 1px #fafafa) and
+  (-webkit-text-fill-color: transparent) {
+  .about__next-word--outline {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1.5px var(--about-paper);
+  }
+}
+
+/* OJT description. */
+.about__direction-content {
+  width: min(69%, 44rem);
+  margin-top: 3rem;
+  margin-left: 31%;
+}
+
+.about__direction-content .about-expandable-text__paragraph:last-of-type {
+  color: var(--about-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Preserve the personal heading's stacked layout. */
+.about__person-name-motion,
+.about__person-name-motion > span {
+  display: block;
 }

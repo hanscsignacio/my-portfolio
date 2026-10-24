@@ -18,7 +18,14 @@
   padding-bottom: var(--hero-band-height);
 
   overflow: hidden;
-  background: #fafafa;
+
+  /* Prevent a thin seam below the CTA band. */
+  background: linear-gradient(
+    to bottom,
+    #fafafa calc(100% - var(--hero-band-height)),
+    #050505 0
+  );
+
   color: #080808;
 }
 
@@ -223,4 +230,13 @@
   width: 1.3em;
   height: 1.3em;
   flex-shrink: 0;
+}
+
+/* Separate entrance and scroll movement. */
+.hero__name-scroll {
+  display: block;
+}
+
+.hero__actions-scroll {
+  display: contents;
 }

@@ -1,13 +1,19 @@
 import gsap from "gsap";
 
-export function createHeroEntrance(root, mode) {
+export function createHeroEntrance(root, mode, portraitTarget = null) {
   if (!root || mode === "still") return null;
 
   const find = (selector) => root.querySelector(selector);
   const findAll = (selector) => [...root.querySelectorAll(selector)];
 
   const name = findAll(".hero__name-line");
-  const portrait = find(".hero__portrait img");
+
+  // Use the supplied shared portrait or the existing Hero image.
+  const portrait =
+    portraitTarget ||
+    find(".hero__portrait img") ||
+    root.closest(".portfolio")?.querySelector(".portrait-journey img");
+
   const branding = find(".hero__branding");
   const role = find(".hero__role");
   const description = find(".hero__description");

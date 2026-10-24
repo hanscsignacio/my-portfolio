@@ -6,6 +6,7 @@
 
   --color-background: #fafafa;
   --color-text: #080808;
+  --chapter-height: 6rem;
 
   font-family: var(--font-body);
   color: var(--color-text);
@@ -28,6 +29,16 @@ html {
 body {
   min-width: 0;
   margin: 0;
+}
+
+/* Shared page colors and spacing. */
+.portfolio {
+  --about-ink: #050505;
+  --about-paper: #fafafa;
+  --about-muted: #b5b5b5;
+  --page-gutter: clamp(1.5rem, 4.5vw, 5rem);
+
+  background: var(--about-ink);
 }
 
 button,

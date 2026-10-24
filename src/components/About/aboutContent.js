@@ -54,3 +54,22 @@ export const educationContent = {
     "I try to make improvements where I can. Feedback and lessons from each project help me see what I could do better next time.",
   ],
 };
+
+// OJT goal and current interests.
+export const directionContent = {
+  // Screen-reader label for the description controls.
+  label: "My OJT goal and current interests",
+
+  // Short description.
+  summary:
+    "I’m looking for web development OJT where I can build on my college and capstone experience, contribute, and learn from experienced developers. I’m also exploring n8n workflow automation.",
+
+  // Full description.
+  paragraphs: [
+    "I want to build on the web development experience I’ve gained throughout college, especially through our capstone project. I’m looking for an OJT opportunity where I can contribute to a team, receive guidance from experienced developers, and understand how development work is planned, reviewed, and improved in a professional setting.",
+
+    "I pick up new tools quickly and stay open to feedback. I’m comfortable handling my own tasks, working with others, and asking questions when I need help. I want to keep improving while contributing work that the team can rely on.",
+
+    "Alongside web development, I’m currently exploring n8n workflow automation and learning how it can help with repetitive tasks.",
+  ],
+};
