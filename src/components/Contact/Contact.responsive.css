@@ -1,0 +1,30 @@
+@media (max-width: 1100px) {
+  .contact-social { padding: 1.5rem; }
+  .contact-social__body { gap: 1rem; }
+  .contact-social__logo--wordmark { width: 4rem; mask-size: 4rem; }
+}
+
+@media (max-width: 700px) {
+  .contact__socials { grid-template-columns: 1fr; }
+  .contact-social { padding: 1.5rem 1rem; }
+  .contact-social + .contact-social { border-left: 0; border-top: 1px solid #424242; }
+  .contact-social__body { display: grid; grid-template-columns: 4.75rem minmax(0, 1fr); gap: 1.5rem; }
+  .contact-social__logo { justify-self: center; }
+  .contact-social__logo { width: 2.25rem; }
+  .contact-social__logo--wordmark { width: 4.75rem; mask-size: 4.75rem; }
+  .contact-social__name { font-size: 1.5rem; }
+  .contact__footer { margin-top: 2.5rem; }
+}
+
+@media (max-width: 540px) {
+  .contact__chapter { padding-right: calc(var(--page-gutter) + 5.5rem); }
+  .contact__chapter a { gap: 0.75rem; font-size: 0.6875rem; letter-spacing: 0.18em; }
+  .contact__header { padding-top: 1.5rem; }
+  .contact__availability { max-width: 15rem; margin-bottom: 1.5rem; font-size: 0.8125rem; }
+  .contact__header h2 { font-size: clamp(4.25rem, 20vw, 6.75rem); }
+  .contact__email { margin-top: 2.5rem; }
+  .contact__email-row { align-items: flex-start; gap: 1.25rem; }
+  .contact__email-link { font-size: clamp(1.0625rem, 4.5vw, 1.375rem); letter-spacing: -0.025em; }
+  .contact__socials { margin-top: 2rem; }
+  .contact__footer { padding-bottom: 1.5rem; font-size: 0.75rem; }
+}

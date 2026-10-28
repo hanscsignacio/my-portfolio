@@ -100,7 +100,11 @@ export function useHeroAboutScrollMotion(rootRef, mode) {
         const anchor = document.getElementById(position.id);
 
         if (anchor) {
-          const offset = position.id === "projects" ? 0 : chapter.offsetHeight;
+          const offset = ["projects", "toolkit", "contact"].includes(
+            position.id,
+          )
+            ? 0
+            : chapter.offsetHeight;
 
           top = window.scrollY + anchor.getBoundingClientRect().top - offset;
         }
