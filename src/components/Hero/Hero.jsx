@@ -92,9 +92,12 @@ function Hero({ portraitRef }) {
         <div className="hero__dark-panel">
           <div className="hero__actions">
             <div className="hero__actions-scroll">
-              <a className="hero__button hero__button--primary" href="#work">
+              <a
+                className="hero__button hero__button--primary"
+                href="#projects"
+              >
                 <span className="hero__button-inner">
-                  <span>View work</span>
+                  <span>View projects</span>
 
                   <svg
                     className="hero__arrow"

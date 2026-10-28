@@ -100,10 +100,9 @@ export function useHeroAboutScrollMotion(rootRef, mode) {
         const anchor = document.getElementById(position.id);
 
         if (anchor) {
-          top =
-            window.scrollY +
-            anchor.getBoundingClientRect().top -
-            chapter.offsetHeight;
+          const offset = position.id === "projects" ? 0 : chapter.offsetHeight;
+
+          top = window.scrollY + anchor.getBoundingClientRect().top - offset;
         }
       }
 
@@ -205,6 +204,9 @@ export function useHeroAboutScrollMotion(rootRef, mode) {
       refreshTimer = window.setTimeout(() => {
         if (disposed) return;
 
+        // Skip page measurements while the project overlay is open.
+        if (document.querySelector(".project-dialog[open]")) return;
+
         if (
           forceRebuild ||
           width !== window.innerWidth ||
@@ -244,6 +246,7 @@ export function useHeroAboutScrollMotion(rootRef, mode) {
 
     window.addEventListener("resize", requestRefresh);
     window.addEventListener("load", requestRebuild);
+    window.addEventListener("portfolio:project-close", requestRefresh);
 
     const images = [...root.querySelectorAll("img")];
 
@@ -268,6 +271,7 @@ export function useHeroAboutScrollMotion(rootRef, mode) {
 
       window.removeEventListener("resize", requestRefresh);
       window.removeEventListener("load", requestRebuild);
+      window.removeEventListener("portfolio:project-close", requestRefresh);
 
       images.forEach((image) =>
         image.removeEventListener("load", requestRebuild),

@@ -2,7 +2,14 @@ import { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 
 // Animate text expansion and collapse.
-export function useExpandCollapseMotion(rootRef, summaryRef, panelRef, mode) {
+export function useExpandCollapseMotion(
+  rootRef,
+  summaryRef,
+  panelRef,
+  mode,
+  scrollerRef,
+  motionVariant = "default",
+) {
   // Store the active animation and its intended open state.
   const timelineRef = useRef(null);
   const targetRef = useRef(false);
@@ -37,24 +44,38 @@ export function useExpandCollapseMotion(rootRef, summaryRef, panelRef, mode) {
       const summary = summaryRef.current;
       const items = [...panelRef.current.querySelectorAll("[data-reveal]")];
       const wasOpen = root.open;
+      const projectSoft = mode === "soft" && motionVariant === "project";
 
       timelineRef.current?.kill();
       targetRef.current = open;
 
-      // Keep the summary below the chapter label when closing.
+      // Keep the summary visible in its scroll container when closing.
       if (!open && wasOpen) {
-        const chapter = root
-          .closest(".about")
-          ?.querySelector(".about__chapter");
-
-        const chapterHeight = chapter?.getBoundingClientRect().height ?? 0;
+        const scroller = scrollerRef?.current;
         const top = summary.getBoundingClientRect().top;
 
-        if (top < chapterHeight + 24) {
-          window.scrollTo({
-            top: Math.max(0, window.scrollY + top - chapterHeight - 24),
-            behavior: mode === "full" ? "smooth" : "instant",
-          });
+        if (scroller) {
+          const readingTop = scroller.getBoundingClientRect().top + 24;
+
+          if (top < readingTop) {
+            scroller.scrollTo({
+              top: Math.max(0, scroller.scrollTop + top - readingTop),
+              behavior: mode === "full" || projectSoft ? "smooth" : "instant",
+            });
+          }
+        } else {
+          const chapter = root
+            .closest(".about")
+            ?.querySelector(".about__chapter");
+
+          const chapterHeight = chapter?.getBoundingClientRect().height ?? 0;
+
+          if (top < chapterHeight + 24) {
+            window.scrollTo({
+              top: Math.max(0, window.scrollY + top - chapterHeight - 24),
+              behavior: mode === "full" ? "smooth" : "instant",
+            });
+          }
         }
       }
 
@@ -117,7 +138,7 @@ export function useExpandCollapseMotion(rootRef, summaryRef, panelRef, mode) {
           root,
           {
             height: nextHeight,
-            duration: mode === "full" ? 0.5 : 0.24,
+            duration: mode === "full" ? 0.5 : projectSoft ? 0.38 : 0.24,
             ease: "power3.inOut",
           },
           0,
@@ -129,24 +150,24 @@ export function useExpandCollapseMotion(rootRef, summaryRef, panelRef, mode) {
             gsap.set(items, {
               opacity: 0,
               x: mode === "full" ? (index) => (index % 2 ? 16 : -12) : 0,
-              y: mode === "full" ? 10 : 0,
+              y: mode === "full" ? 10 : projectSoft ? 16 : 0,
             });
           }
 
           timeline.to(summary, { opacity: 1, duration: 0.2 }, 0);
 
-          // Stagger paragraphs in Full mode; fade them in Soft mode.
+          // Stagger the project story in Soft mode.
           timeline.to(
             items,
             {
               opacity: 1,
               x: 0,
               y: 0,
-              stagger: mode === "full" ? 0.065 : 0,
-              duration: mode === "full" ? 0.36 : 0.2,
+              stagger: mode === "full" ? 0.065 : projectSoft ? 0.055 : 0,
+              duration: mode === "full" ? 0.36 : projectSoft ? 0.32 : 0.2,
               ease: "power3.out",
             },
-            mode === "full" ? 0.1 : 0,
+            mode === "full" ? 0.1 : projectSoft ? 0.05 : 0,
           );
         } else {
           // Fade the full description before closing.
@@ -155,7 +176,7 @@ export function useExpandCollapseMotion(rootRef, summaryRef, panelRef, mode) {
             {
               opacity: 0,
               x: mode === "full" ? -8 : 0,
-              y: 0,
+              y: projectSoft ? -6 : 0,
               stagger: mode === "full" ? 0.025 : 0,
               duration: 0.16,
             },
@@ -177,7 +198,7 @@ export function useExpandCollapseMotion(rootRef, summaryRef, panelRef, mode) {
         begin();
       }
     },
-    [mode, rootRef, summaryRef, panelRef, settle],
+    [mode, rootRef, summaryRef, panelRef, scrollerRef, motionVariant, settle],
   );
 
   // Reverse the intended state, including during an active animation.

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import OpeningStory from "./components/OpeningStory/OpeningStory";
 import About from "./components/About/About";
 import AboutChapter from "./components/About/AboutChapter";
+import SelectedProject from "./components/SelectedProject/SelectedProject";
 import MotionProvider from "./context/MotionProvider";
 import MotionControl from "./components/MotionControl/MotionControl";
 import { useMotion } from "./hooks/useMotion";
@@ -22,6 +23,7 @@ function PortfolioContent() {
       <AboutChapter />
       <OpeningStory portraitRef={portraitRef} />
       <About />
+      <SelectedProject />
     </main>
   );
 }

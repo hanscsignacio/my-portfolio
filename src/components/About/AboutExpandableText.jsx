@@ -7,7 +7,13 @@ import "./AboutExpandableText.css";
 import "./AboutExpandableText.responsive.css";
 
 // Expandable About description.
-function AboutExpandableText({ label, summary, paragraphs }) {
+function AboutExpandableText({
+  label,
+  summary,
+  paragraphs,
+  scrollerRef,
+  motionVariant = "default",
+}) {
   // References to the expandable area, summary, and full text.
   const rootRef = useRef(null);
   const summaryRef = useRef(null);
@@ -26,6 +32,8 @@ function AboutExpandableText({ label, summary, paragraphs }) {
     summaryRef,
     panelRef,
     mode,
+    scrollerRef,
+    motionVariant,
   );
 
   // Cancel a pending text click.

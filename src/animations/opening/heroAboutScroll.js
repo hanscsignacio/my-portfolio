@@ -248,7 +248,8 @@ export function createHeroAboutScroll(root, mode, compact, pinned) {
       // Apply the current pose after direct links or mode changes.
       ScrollTrigger.getAll().forEach((trigger) => {
         if (trigger.trigger && root.contains(trigger.trigger)) {
-          trigger.getTween()?.progress(1);
+          const tween = trigger.getTween();
+          if (tween) tween.progress(1);
         }
       });
 

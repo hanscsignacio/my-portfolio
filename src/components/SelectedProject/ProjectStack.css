@@ -1,0 +1,27 @@
+.project-stack { padding: clamp(3.5rem, 7vw, 7rem) 0; border-top: 1px solid #d1d1d1; }
+.project-stack__eyebrow { margin: 0 0 1.5rem; color: var(--project-muted); font-size: 0.75rem; line-height: 1.5; }
+.project-stack > h3 { max-width: 52rem; margin: 0 0 clamp(2.5rem, 5vw, 4.5rem); font-size: clamp(2.5rem, 5.2vw, 5rem); font-weight: 500; line-height: 1.08; letter-spacing: -0.055em; }
+.project-stack > h3:focus-visible { outline: 2px solid currentColor; outline-offset: 0.5rem; }
+.project-stack__group { display: grid; grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1fr); gap: 2rem; padding: 1.75rem 0; border-top: 1px solid #dedede; }
+.project-stack__group h4 { margin: 0; padding-top: 0.25rem; font-size: 0.875rem; font-weight: 500; line-height: 1.5; }
+.project-stack__group > div > p { max-width: 40rem; margin: 1rem 0 0; color: var(--project-muted); font-size: 0.875rem; line-height: 1.6; }
+.project-stack__highlights-label { margin-top: 3.5rem; }
+.project-stack__capabilities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 5rem); margin: 0; }
+.project-stack__capabilities > div { padding: 1.5rem 0 2rem; border-top: 1px solid #dedede; }
+.project-stack__capabilities dt { margin-bottom: 0.75rem; font-size: clamp(1.25rem, 2vw, 1.625rem); font-weight: 500; line-height: 1.25; letter-spacing: -0.035em; }
+.project-stack__capabilities dd { max-width: 34rem; margin: 0; color: #454545; font-size: 0.9375rem; line-height: 1.7; }
+.project-stack, .project-stack__group, .project-stack__capabilities > div { position: relative; border-top-color: transparent; }
+.project-stack::before, .project-stack__group::before, .project-stack__capabilities > div::before { content: ""; position: absolute; top: -1px; left: 0; right: 0; height: 1px; background: #dedede; transform: scaleX(var(--detail-rule, 1)); transform-origin: left; }
+.project-stack::before { background: #d1d1d1; }
+.project-stack__capabilities > div:nth-child(even)::before { transform-origin: right; }
+
+@media (max-width: 820px) {
+  .project-stack__group { grid-template-columns: 1fr; gap: 1.25rem; }
+  .project-stack__capabilities { grid-template-columns: 1fr; }
+  .project-stack__capabilities > div:nth-child(even)::before { transform-origin: left; }
+}
+
+@media (max-width: 540px) {
+  .project-stack__group .project-technologies { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-stack__group h4 { font-size: 0.8125rem; }
+}
