@@ -1,0 +1,33 @@
+/* Tablet and phone */
+@media (max-width: 820px) {
+  /* Shared chapter height */
+  :root {
+    --chapter-height: 5rem;
+  }
+}
+
+/* Device motion preference before JavaScript initializes */
+@media (prefers-reduced-motion: reduce) {
+  html:not([data-motion]) {
+    scroll-behavior: auto;
+  }
+
+  html:not([data-motion]) *,
+  html:not([data-motion]) *::before,
+  html:not([data-motion]) *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Still mode */
+html[data-motion="still"] {
+  scroll-behavior: auto;
+}
+
+html[data-motion="still"] *,
+html[data-motion="still"] *::before,
+html[data-motion="still"] *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}

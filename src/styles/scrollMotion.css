@@ -1,0 +1,190 @@
+/* Shared page and opening stage. */
+.portfolio {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  overflow-anchor: none;
+  background: var(--about-ink);
+}
+
+.opening-story,
+.opening-story__stage {
+  position: relative;
+}
+
+.opening-story__about-anchor {
+  position: absolute;
+  top: var(--story-about-offset, 100svh);
+  left: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.about-opening {
+  position: relative;
+  z-index: 6;
+  background: var(--about-ink);
+  color: var(--about-paper);
+}
+
+/* Separate entrance motion from scroll motion. */
+.hero__actions-scroll {
+  display: contents;
+}
+
+.hero__name-scroll,
+.about__person-name-motion,
+.about__person-name-motion > span {
+  display: block;
+}
+
+.hero__portrait-slot {
+  width: 100%;
+  aspect-ratio: 1263 / 1245;
+}
+
+.about {
+  z-index: 2;
+  margin-top: calc(-1 * var(--chapter-height));
+}
+
+.about__chapter-motion {
+  display: flex;
+  gap: inherit;
+}
+
+.about__phrase {
+  display: inline-block;
+}
+
+/* About portrait frame. */
+.about__portrait-reveal {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.about__person-portrait {
+  position: relative;
+  background: transparent;
+}
+
+.about__portrait-field {
+  position: absolute;
+  inset: 0;
+  background: #222;
+  pointer-events: none;
+}
+
+/* Shared portrait positioning. */
+.portrait-journey {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.portrait-journey__mover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: 0 0;
+}
+
+.portrait-journey img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.12);
+}
+
+/* Keep the portrait beneath the opener and personal heading. */
+.portfolio--journey .opening-story__stage {
+  z-index: 2;
+}
+
+.portfolio--journey .hero_wrap {
+  isolation: auto;
+}
+
+.portfolio--journey .about {
+  z-index: auto;
+  isolation: auto;
+  background: transparent;
+}
+
+.portfolio--journey .about__intro {
+  z-index: 6;
+  background: var(--about-ink);
+}
+
+.portfolio--journey .about__person-title {
+  z-index: 4;
+}
+
+/* Pinned opening layout. */
+.portfolio--pinned .opening-story__stage {
+  height: var(--story-stage-height);
+  background: var(--about-ink);
+}
+
+.portfolio--pinned .hero_wrap {
+  height: var(--story-hero-height) !important;
+  min-height: var(--story-hero-height);
+}
+
+.portfolio--pinned .about-opening {
+  position: absolute;
+  top: var(--story-pin-offset);
+  right: 0;
+  left: 0;
+  height: var(--story-view-height);
+}
+
+.portfolio--pinned .hero__actions-scroll {
+  display: flex;
+  gap: inherit;
+}
+
+/* Compact pinned layout. */
+.portfolio--compact-pin .about__intro {
+  min-height: calc(var(--story-view-height) - var(--chapter-height));
+  padding: 2rem var(--page-gutter) 3rem;
+}
+
+.portfolio--compact-pin .hero__actions-scroll {
+  flex: 1;
+}
+
+/* Keep section destinations below the chapter marker. */
+html {
+  scroll-padding-top: var(--chapter-height);
+}
+
+.about {
+  scroll-margin-top: calc(-1 * var(--chapter-height));
+}
+
+/* The scroll controller positions the single chapter marker. */
+.portfolio .about__chapter {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  left: 0;
+  color: var(--about-paper);
+  visibility: hidden;
+}
+
+.about__chapter-space {
+  height: var(--chapter-height);
+}

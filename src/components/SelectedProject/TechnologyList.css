@@ -1,0 +1,16 @@
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-technologies li { display: flex; min-width: 0; align-items: center; gap: 0.75rem; font-size: 0.875rem; font-weight: 500; line-height: 1.4; }
+.project-technologies img { display: block; width: 1.75rem; height: 1.75rem; flex-shrink: 0; object-fit: contain; }
+
+@media (max-width: 540px) {
+  .project-technologies { gap: 1.25rem 1.5rem; }
+  .project-technologies li { gap: 0.625rem; font-size: 0.8125rem; }
+}

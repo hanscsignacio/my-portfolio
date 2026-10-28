@@ -1,0 +1,122 @@
+/* Expandable text and summary. */
+.about-expandable-text {
+  color: var(--about-paper);
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.about-expandable-text > summary {
+  display: block;
+  min-height: 2.75rem;
+  padding: 0.25rem 0;
+  cursor: inherit;
+  list-style: none;
+}
+
+.about-expandable-text > summary::-webkit-details-marker {
+  display: none;
+}
+
+.about-expandable-text > summary::marker {
+  content: "";
+}
+
+.about-expandable-text__short {
+  display: block;
+  max-width: 38ch;
+  font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+  line-height: 1.45;
+  letter-spacing: -0.035em;
+}
+
+.about-expandable-text__cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  color: var(--about-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.about-expandable-text__mark {
+  color: var(--about-paper);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+/* Open and closed labels. */
+.about-expandable-text__close-label {
+  display: none;
+}
+
+.about-expandable-text[open] > summary .about-expandable-text__short,
+.about-expandable-text[open] .about-expandable-text__open-label {
+  display: none;
+}
+
+.about-expandable-text[open] .about-expandable-text__close-label {
+  display: inline;
+}
+
+.about-expandable-text[open] .about-expandable-text__cue {
+  margin-top: 0;
+}
+
+/* Full description and return control. */
+.about-expandable-text__body {
+  padding-top: 1.25rem;
+  cursor: inherit;
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.65;
+  letter-spacing: -0.025em;
+}
+
+.about-expandable-text__paragraph {
+  margin: 0;
+}
+
+.about-expandable-text__paragraph + .about-expandable-text__paragraph {
+  margin-top: 1.75rem;
+}
+
+.about-expandable-text__return {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--about-muted);
+  cursor: pointer;
+  font: 500 0.875rem/1.5 var(--font-body);
+  text-align: left;
+}
+
+/* Hover, keyboard focus, and screen-reader text. */
+.about-expandable-text > summary:hover .about-expandable-text__cue,
+.about-expandable-text > summary:focus-visible .about-expandable-text__cue,
+.about-expandable-text__return:hover {
+  color: var(--about-paper);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.about-expandable-text > summary:focus-visible,
+.about-expandable-text__return:focus-visible {
+  outline: 2px solid var(--about-paper);
+  outline-offset: 0.5rem;
+}
+
+.about-expandable-text__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
