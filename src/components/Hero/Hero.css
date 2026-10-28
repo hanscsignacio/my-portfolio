@@ -113,6 +113,49 @@
   letter-spacing: -0.035em;
 }
 
+/* Resume link */
+.hero__resume {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  color: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.hero__resume svg {
+  flex-shrink: 0;
+}
+
+.hero__resume-label {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+  text-decoration-color: #888;
+  transition: text-decoration-color 180ms ease;
+}
+
+.hero__resume-type {
+  margin-left: 0.125rem;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  opacity: 0.65;
+}
+
+.hero__resume:hover .hero__resume-label {
+  text-decoration-color: currentColor;
+}
+
+.hero__resume:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
 /* Side details */
 
 .hero__side-details {

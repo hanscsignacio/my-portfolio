@@ -17,6 +17,7 @@ export function createHeroEntrance(root, mode, portraitTarget = null) {
   const branding = find(".hero__branding");
   const role = find(".hero__role");
   const description = find(".hero__description");
+  const resume = find(".hero__resume");
   const student = find(".hero__student");
   const divider = find(".hero__side-divider");
   const keywords = find(".hero__keywords");
@@ -30,6 +31,7 @@ export function createHeroEntrance(root, mode, portraitTarget = null) {
     branding,
     role,
     description,
+    resume,
     student,
     divider,
     keywords,
@@ -96,7 +98,7 @@ export function createHeroEntrance(root, mode, portraitTarget = null) {
         0.5,
       )
       .from(
-        [role, description],
+        [role, description, resume],
         {
           opacity: 0,
           y: 12,
@@ -194,7 +196,7 @@ export function createHeroEntrance(root, mode, portraitTarget = null) {
       0.9,
     )
     .from(
-      [role, description],
+      [role, description, resume],
       {
         opacity: 0,
         y: 25,

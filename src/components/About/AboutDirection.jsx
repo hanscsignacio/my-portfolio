@@ -7,7 +7,7 @@ function AboutDirection() {
   return (
     <section
       className="about__scene about__direction"
-      id="contact"
+      id="about-direction"
       aria-labelledby="direction-heading"
     >
       <div className="about__direction-inner">

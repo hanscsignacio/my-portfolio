@@ -92,6 +92,10 @@
     line-height: 1.5;
   }
 
+  .hero__resume {
+    margin-top: 0.625rem;
+  }
+
   /* Side details */
   .hero__side-details {
     top: 25vw;

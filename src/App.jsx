@@ -3,6 +3,8 @@ import OpeningStory from "./components/OpeningStory/OpeningStory";
 import About from "./components/About/About";
 import AboutChapter from "./components/About/AboutChapter";
 import SelectedProject from "./components/SelectedProject/SelectedProject";
+import Toolkit from "./components/Toolkit/Toolkit";
+import Contact from "./components/Contact/Contact";
 import MotionProvider from "./context/MotionProvider";
 import MotionControl from "./components/MotionControl/MotionControl";
 import { useMotion } from "./hooks/useMotion";
@@ -24,6 +26,8 @@ function PortfolioContent() {
       <OpeningStory portraitRef={portraitRef} />
       <About />
       <SelectedProject />
+      <Toolkit />
+      <Contact />
     </main>
   );
 }
