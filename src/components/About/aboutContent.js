@@ -30,7 +30,7 @@ export const approachContent = {
   paragraphs: [
     "Through our capstone project, I worked on both UI and backend development. I also led UI/UX and database design, researched tools, and helped with testing and fixing issues.",
 
-    "The project gave me practice in planning how features should work, comparing possible approaches, and breaking larger tasks into smaller steps. When something did not work as expected, I helped investigate the cause, test possible fixes, and check how the changes affected other parts of the application.",
+    "The project gave me practice in planning how features should work, comparing possible approaches, and breaking larger tasks into smaller steps. When issues came up during development, I helped investigate the cause, test possible fixes, and check how the changes affected other parts of the application.",
 
     "In my learning and project work, I’ve also used AI tools to help me plan tasks, understand unfamiliar topics, and work more efficiently.",
 
