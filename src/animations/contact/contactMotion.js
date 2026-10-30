@@ -99,7 +99,6 @@ export function createContactMotion(root, mode) {
           ease: "power3.out",
           scrollTrigger: {
             ...trigger(body.parentElement, "top 85%"),
-            markers: true,
           },
         },
       ),
