@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function createContactMotion(root, mode) {
   const full = mode === "full";
   const animations = [];
-  const trigger = (element, start = "clamp(top 82%)") => ({
+  const trigger = (element, start = "clamp(top 80%)") => ({
     trigger: element,
     start,
     toggleActions: "play none none reverse",
@@ -97,7 +97,10 @@ export function createContactMotion(root, mode) {
           duration: full ? 0.7 : 0.45,
           delay: index * (full ? 0.09 : 0.05),
           ease: "power3.out",
-          scrollTrigger: trigger(body.parentElement),
+          scrollTrigger: {
+            ...trigger(body.parentElement, "top 85%"),
+            markers: true,
+          },
         },
       ),
     );
