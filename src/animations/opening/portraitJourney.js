@@ -139,7 +139,7 @@ export function createPortraitJourney(root, mode, scene = null) {
     travelEnd = scene.distance * 0.99;
 
     // Keep the face visible before a short phone's pin begins.
-    if (scene.offset > 1) {
+    if (scene.compact && scene.offset > 1) {
       const carry = scene.offset * 0.8;
 
       const leadIn = gsap.timeline({

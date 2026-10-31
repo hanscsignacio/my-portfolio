@@ -11,6 +11,11 @@ export function getOpeningLayout(root, mode = "full") {
   const intro = root.querySelector(".about__intro");
 
   const compact = window.innerWidth <= 820;
+  const portrait = window.matchMedia(
+    "(min-width: 821px) and (orientation: portrait)",
+  ).matches;
+  const scrollableHero = compact || portrait;
+
   const viewHeight = window.innerHeight;
 
   const heroHeight = Math.max(
@@ -30,11 +35,11 @@ export function getOpeningLayout(root, mode = "full") {
     heading.offsetHeight + chapter.offsetHeight + padding <= viewHeight + 1;
 
   const offset =
-    compact && heroHeight > viewHeight
+    scrollableHero && heroHeight > viewHeight
       ? Math.max(heroHeight - viewHeight, nameTop - viewHeight * 0.18)
       : 0;
 
-  const heroFits = compact
+  const heroFits = scrollableHero
     ? heroHeight - nameTop <= viewHeight * 0.9 && nameTop - offset >= 16
     : heroHeight <= viewHeight + 1;
 
