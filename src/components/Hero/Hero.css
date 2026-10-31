@@ -116,7 +116,6 @@
 /* Resume link */
 .hero__resume {
   display: inline-flex;
-  min-height: 2.75rem;
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.75rem;
