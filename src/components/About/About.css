@@ -161,10 +161,6 @@
   padding-bottom: clamp(4rem, 7vw, 8rem);
 }
 
-.about__approach-inner {
-  max-width: 82rem;
-}
-
 .about__layers {
   position: relative;
   isolation: isolate;
@@ -392,10 +388,6 @@
 .about__direction {
   padding-top: clamp(4rem, 6vw, 6rem);
   padding-bottom: clamp(4rem, 7vw, 8rem);
-}
-
-.about__direction-inner {
-  max-width: 82rem;
 }
 
 /* Solid and outlined headline. */

@@ -270,3 +270,191 @@
     -webkit-text-stroke: 0;
   }
 }
+
+/* Special Screen sizes.. */
+@media (min-width: 821px) and (orientation: portrait) {
+  :root {
+    --chapter-height: 10dvw;
+  }
+  .portfolio {
+    --page-gutter: 4.5dvw;
+  }
+
+  .about__chapter-link {
+    font-size: 1.4dvw;
+    gap: 1.7dvw;
+  }
+
+  .about__chapter {
+    padding: 0px 21dvw 0 4.5dvw;
+  }
+
+  .about__intro {
+    padding: 6dvw var(--page-gutter) 11.7dvw;
+  }
+  .about__title {
+    font-size: 10.5dvw;
+  }
+
+  .about__scene {
+    padding: 8.5dvw var(--page-gutter);
+  }
+  .about__person {
+    row-gap: 5dvw;
+  }
+
+  .about__person-title {
+    font-size: 23dvw;
+  }
+  .about__person-portrait {
+    grid-column: 1;
+    grid-row: 1;
+    width: 86dvw;
+    height: 88dvw;
+  }
+  .about__person-content {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    max-width: none;
+  }
+  .about-expandable-text > summary {
+    padding: 1.5dvw 0;
+  }
+
+  .about-expandable-text__short {
+    font-size: 2.5dvw;
+  }
+  .about__person-content .about-expandable-text__short {
+    max-width: none;
+  }
+  .about-expandable-text__cue {
+    gap: 2.5dvw;
+    font-size: 1.5dvw;
+    margin-top: 1.67dvw;
+  }
+  .about-expandable-text__mark {
+    font-size: 2.5dvw;
+  }
+
+  .about-expandable-text__body {
+    padding-top: 2.15dvw;
+    font-size: 1.9dvw;
+  }
+  .about__person-content .about-expandable-text__paragraph:first-child {
+    font-size: 2.5dvw;
+  }
+  .about-expandable-text__paragraph + .about-expandable-text__paragraph {
+    margin-top: 2.9dvw;
+  }
+  .about-expandable-text__return {
+    gap: 2.5dvw;
+    margin-top: 2.5dvw;
+    font-size: 1.5dvw;
+  }
+
+  .about__layers {
+    height: 65dvw;
+  }
+  .about__layer {
+    padding: 3dvw;
+  }
+  .about__layer--interface {
+    font-size: 10.5dvw;
+  }
+  .about__layer-caption {
+    font-size: 1.5dvw;
+  }
+  .about__layer--logic {
+    font-size: 8.2dvw;
+  }
+  .about__layer--data {
+    font-size: 7.5dvw;
+  }
+
+  .about__approach-content {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-top: 5dvw;
+  }
+  .about-expandable-text__short {
+    max-width: none;
+  }
+  .about__approach-content .about-expandable-text__paragraph:first-child {
+    font-size: 2.3dvw;
+  }
+
+  .about__education-entry {
+    margin-left: 0;
+    width: 100%;
+    max-width: none;
+  }
+  .about__foundation {
+    margin: 0px 0 5dvw;
+    font-size: 2.88dvw;
+  }
+  .about__education-year {
+    font-size: 44dvw;
+  }
+  .about__education-present {
+    margin-left: -9dvw;
+    font-size: 3.4dvw;
+    top: 3%;
+  }
+  .about__university {
+    font-size: 6.8dvw;
+  }
+  .about__degree {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5dvw;
+    width: 91.6667%;
+    margin-top: 5dvw;
+    margin-left: 8.3333%;
+  }
+  .about__degree dt,
+  .about__recognition-label {
+    margin-bottom: 0.85dvw;
+    font-size: 2.46dvw;
+  }
+  .about__degree dd {
+    font-size: 4.5dvw;
+  }
+  .about__recognition {
+    margin: 6.67dvw 0 0 8%;
+  }
+  .about__recognition-title {
+    font-size: 6dvw;
+  }
+  .about__recognition-period {
+    font-size: 2.67dvw;
+    margin-top: 1.25dvw;
+  }
+  .about__education-content {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-top: 5dvw;
+  }
+
+  .about__next {
+    font-size: 25dvw;
+  }
+  @supports (-webkit-text-stroke: 1px #fafafa) and
+    (-webkit-text-fill-color: transparent) {
+    .about__next-word--outline {
+      -webkit-text-stroke: 0.11dvw var(--about-paper);
+    }
+  }
+
+  .about__direction-content {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-top: 5dvw;
+  }
+
+  .about__direction-content .about-expandable-text__paragraph:last-of-type{
+    font-size: 1.68dvw;
+  }
+}

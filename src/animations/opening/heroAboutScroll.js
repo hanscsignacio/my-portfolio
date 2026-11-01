@@ -123,6 +123,12 @@ function createAboutOpener(root, mode, compact) {
 
 // Reveal the portrait field and personal heading.
 function createPersonalEntrance(root, mode, compact) {
+  const portrait = window.matchMedia(
+    "(min-width: 821px) and (orientation: portrait)",
+  ).matches;
+
+  const compactMotion = compact || portrait;
+
   const frame = root.querySelector(".about__person-portrait");
   const field = root.querySelector(".about__portrait-field");
   const heading = root.querySelector(".about__person-title");
@@ -170,7 +176,9 @@ function createPersonalEntrance(root, mode, compact) {
     .fromTo(
       prefix,
       {
-        x: (compact ? -24 : -72) * strength,
+        x: () =>
+          (portrait ? -window.innerWidth * 0.06 : compact ? -24 : -72) *
+          strength,
         y: 12 * strength,
         opacity: full ? 0.15 : 0.45,
       },
@@ -186,8 +194,11 @@ function createPersonalEntrance(root, mode, compact) {
     .fromTo(
       name,
       {
-        x: -Math.min(window.innerWidth * 0.14, 192) * strength,
-        y: (compact ? 28 : 60) * strength,
+        x: () =>
+          -(portrait
+            ? window.innerWidth * 0.14
+            : Math.min(window.innerWidth * 0.14, 192)) * strength,
+        y: (compactMotion ? 28 : 60) * strength,
         opacity: full ? 0.15 : 0.45,
       },
       {

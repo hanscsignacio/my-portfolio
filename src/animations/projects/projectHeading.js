@@ -19,10 +19,21 @@ export function createProjectHeadingMotion(root, mode) {
     },
   });
 
-  timeline.fromTo(lead, { x: full ? -56 : -16, opacity: 0 }, { x: 0, opacity: 1, duration: 0.4 }, 0);
-  timeline.fromTo(word,
-    { yPercent: full ? 115 : 45, xPercent: full ? -9 : -2, rotation: full ? -5 : -1.5 },
-    { yPercent: 0, xPercent: 0, rotation: 0, duration: 1 }, 0,
+  timeline.fromTo(
+    lead,
+    { x: full ? -56 : -16, opacity: 0 },
+    { x: 0, opacity: 1, duration: 0.4 },
+    0,
+  );
+  timeline.fromTo(
+    word,
+    {
+      yPercent: full ? 115 : 45,
+      xPercent: full ? -9 : -2,
+      rotation: full ? -5 : -1.5,
+    },
+    { yPercent: 0, xPercent: 0, rotation: 0, duration: 1 },
+    0,
   );
 
   return timeline;
@@ -32,22 +43,27 @@ export function createProjectHeadingMotion(root, mode) {
 export function createProjectChapterMotion(root, mode) {
   const pieces = root.querySelectorAll(".selected-project__chapter-piece");
   const full = mode === "full";
+  const from = {
+    y: 0,
+    yPercent: full ? 120 : 40,
+    opacity: 0,
+  };
 
-  return gsap.fromTo(pieces,
-    { yPercent: full ? 120 : 40, opacity: full ? 0 : 0.4 },
-    {
-      yPercent: 0,
-      opacity: 1,
-      stagger: full ? 0.08 : 0.025,
-      ease: "none",
-      scrollTrigger: {
-        id: "projects-chapter",
-        trigger: root,
-        start: "top 24%",
-        end: "top top",
-        scrub: full ? 0.25 : 0.15,
-        invalidateOnRefresh: true,
-      },
+  gsap.set(pieces, { ...from });
+
+  return gsap.fromTo(pieces, from, {
+    y: 0,
+    yPercent: 0,
+    opacity: 1,
+    stagger: full ? 0.08 : 0.025,
+    ease: "none",
+    scrollTrigger: {
+      id: "projects-chapter",
+      trigger: root,
+      start: "top 24%",
+      end: "top top",
+      scrub: full ? 0.25 : 0.15,
+      invalidateOnRefresh: true,
     },
-  );
+  });
 }
