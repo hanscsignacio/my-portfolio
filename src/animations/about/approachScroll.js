@@ -7,25 +7,32 @@ export function createApproachScroll(root, mode, compact) {
 
   const strength = mode === "full" ? 1 : 0.5;
 
+  const portrait = window.matchMedia(
+    "(min-width: 821px) and (orientation: portrait)",
+  ).matches;
+
+  const move = (pixels) => () =>
+    pixels * strength * (portrait ? window.innerWidth / 1440 : 1);
+
   const layers = [
     {
       element: heading.querySelector(".about__layer--interface"),
       start: 0,
-      x: -(compact ? 72 : 160) * strength,
-      y: 28 * strength,
+      x: move(-(compact ? 72 : 160)),
+      y: move(28),
     },
     {
       element: heading.querySelector(".about__layer--logic"),
       start: 0.2,
-      x: (compact ? 88 : 200) * strength,
-      y: -24 * strength,
+      x: move(compact ? 88 : 200),
+      y: move(-24),
       mask: `inset(0% 0% 0% ${65 * strength}%)`,
     },
     {
       element: heading.querySelector(".about__layer--data"),
       start: 0.43,
-      x: -24 * strength,
-      y: -Math.min(heading.offsetHeight * 0.18, 96) * strength,
+      x: move(-24),
+      y: move(-Math.min(heading.offsetHeight * 0.18, 96)),
       mask: `inset(0% 0% ${55 * strength}% 0%)`,
     },
   ];
@@ -54,7 +61,7 @@ export function createApproachScroll(root, mode, compact) {
     const from = {
       x,
       y,
-      opacity: mode === "full" ? 0 : 0.2,
+      opacity: portrait ? 0 : mode === "full" ? 0 : 0.2,
     };
 
     const to = {
@@ -76,8 +83,8 @@ export function createApproachScroll(root, mode, compact) {
     timeline.fromTo(
       word,
       {
-        x: (index === 1 ? 24 : -24) * strength,
-        y: 18 * strength,
+        x: move(index === 1 ? 24 : -24),
+        y: move(18),
         opacity: 0,
         clipPath: `inset(0% 0% ${100 * strength}% 0%)`,
       },
@@ -94,7 +101,7 @@ export function createApproachScroll(root, mode, compact) {
     timeline.fromTo(
       caption,
       {
-        y: 12 * strength,
+        y: move(12),
         opacity: 0,
       },
       {

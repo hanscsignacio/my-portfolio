@@ -6,7 +6,23 @@ export function createDirectionScroll(root, mode, compact) {
   if (!heading || mode === "still") return null;
 
   const strength = mode === "full" ? 1 : 0.5;
+
+  const portrait = window.matchMedia(
+    "(min-width: 821px) and (orientation: portrait)",
+  ).matches;
+
+  const move = (pixels) => () =>
+    pixels * strength * (portrait ? window.innerWidth / 1440 : 1);
+
   const lines = heading.querySelectorAll(".about__next-line");
+
+  if (portrait) {
+    gsap.set(lines, {
+      x: 0,
+      y: 0,
+      opacity: 0,
+    });
+  }
 
   const timeline = gsap.timeline({
     defaults: { ease: "none" },
@@ -30,9 +46,9 @@ export function createDirectionScroll(root, mode, compact) {
     timeline.fromTo(
       line,
       {
-        x: (index ? 1 : -1) * (compact ? 48 : 144) * strength,
-        y: (compact ? 24 : 40) * strength,
-        opacity: mode === "full" ? 0.15 : 0.45,
+        x: move((index ? 1 : -1) * (compact ? 48 : 144)),
+        y: move(compact ? 24 : 40),
+        opacity: portrait ? 0 : mode === "full" ? 0.15 : 0.45,
       },
       {
         x: 0,

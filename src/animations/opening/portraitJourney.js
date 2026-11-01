@@ -62,10 +62,18 @@ export function createPortraitJourney(root, mode, scene = null) {
       last.height -
       window.innerHeight * 0.05;
 
-    const heldTop = Math.max(
-      window.innerHeight * 0.06,
-      Math.min(window.innerHeight * (full ? 0.22 : 0.31), coveredTop),
+    const portraitLayout = window.matchMedia(
+      "(min-width: 821px) and (orientation: portrait)",
+    ).matches;
+
+    const desiredHeldTop = Math.min(
+      window.innerHeight * (full ? 0.22 : 0.31),
+      coveredTop,
     );
+
+    const heldTop = portraitLayout
+      ? desiredHeldTop
+      : Math.max(window.innerHeight * 0.06, desiredHeldTop);
 
     const descent = window.innerHeight * 0.88 - heldTop;
 

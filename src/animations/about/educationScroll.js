@@ -6,6 +6,13 @@ export function createEducationScroll(root, mode, compact) {
   if (!entry || mode === "still") return null;
 
   const strength = mode === "full" ? 1 : 0.5;
+
+  const portrait = window.matchMedia(
+    "(min-width: 821px) and (orientation: portrait)",
+  ).matches;
+
+  const move = (pixels) => () =>
+    pixels * strength * (portrait ? window.innerWidth / 1440 : 1);
   const scrub = mode === "full" ? 0.3 : 0.2;
 
   const composition = entry.querySelector(".about__education-composition");
@@ -32,7 +39,7 @@ export function createEducationScroll(root, mode, compact) {
   foundationTimeline
     .fromTo(
       foundation,
-      { y: 28 * strength },
+      { y: move(28) },
       {
         y: 0,
         duration: 1,
@@ -67,7 +74,7 @@ export function createEducationScroll(root, mode, compact) {
   timeline.fromTo(
     period,
     {
-      y: (compact ? 40 : 64) * strength,
+      y: move(compact ? 40 : 64),
       scale: 1 - 0.04 * strength,
       transformOrigin: "left bottom",
     },
@@ -108,8 +115,8 @@ export function createEducationScroll(root, mode, compact) {
     universityTimeline.fromTo(
       line,
       {
-        x: (index ? 1 : -1) * (compact ? 24 : 64) * strength,
-        y: 30 * strength,
+        x: move((index ? 1 : -1) * (compact ? 24 : 64)),
+        y: move(30),
       },
       {
         x: 0,
@@ -152,7 +159,7 @@ export function createEducationScroll(root, mode, compact) {
   [...degree.children].forEach((item, index) => {
     degreeTimeline.fromTo(
       item,
-      { y: 24 * strength },
+      { y: move(24) },
       {
         y: 0,
         duration: 0.85,
