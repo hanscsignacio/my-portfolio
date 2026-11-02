@@ -1,4 +1,4 @@
-import portrait from "../../assets/images/portrait-transparent.png";
+import portrait from "../../assets/images/portrait-transparent.webp";
 
 // Share one portrait between Hero and About.
 function PortraitJourney({ portraitRef }) {

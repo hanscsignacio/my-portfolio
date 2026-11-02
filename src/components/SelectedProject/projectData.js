@@ -1,11 +1,11 @@
-import desktop from "../../assets/projects/snapbox/browse-desktop.png";
-import phone from "../../assets/projects/snapbox/map-mobile.png";
-import map from "../../assets/projects/snapbox/map-desktop.png";
-import messages from "../../assets/projects/snapbox/messages-desktop.png";
-import booking from "../../assets/projects/snapbox/booking-desktop.png";
-import offerings from "../../assets/projects/snapbox/offerings-desktop.png";
-import auth from "../../assets/projects/snapbox/auth-desktop.png";
-import team from "../../assets/projects/snapbox/team-desktop.png";
+import desktop from "../../assets/projects/snapbox/browse-desktop.webp";
+import phone from "../../assets/projects/snapbox/map-mobile.webp";
+import map from "../../assets/projects/snapbox/map-desktop.webp";
+import messages from "../../assets/projects/snapbox/messages-desktop.webp";
+import booking from "../../assets/projects/snapbox/booking-desktop.webp";
+import offerings from "../../assets/projects/snapbox/offerings-desktop.webp";
+import auth from "../../assets/projects/snapbox/auth-desktop.webp";
+import team from "../../assets/projects/snapbox/team-desktop.webp";
 
 // Keep the project content separate from its presentation.
 export const snapboxProject = {
@@ -29,7 +29,8 @@ export const snapboxProject = {
   ],
   learning: {
     title: ["What this project taught me."],
-    summary: "I learned why planning matters, how to work through setbacks, and how much I enjoy trying new technologies. It was my hardest project so far, and I’m taking those lessons with me into OJT.",
+    summary:
+      "I learned why planning matters, how to work through setbacks, and how much I enjoy trying new technologies. It was my hardest project so far, and I’m taking those lessons with me into OJT.",
     paragraphs: [
       "Before this project, I usually went straight into coding. I thought planning would only take up time that I could spend building. But when we started running into problems and relying on workarounds, I understood why planning mattered. I learned to appreciate wireframes, prototypes, and taking time to think through how things should work before writing the code.",
       "This was my hardest project so far. It took nearly a year, and balancing it with classes was exhausting at times. Some nights meant very little sleep before another early class. There were moments when I felt stuck and wanted to stop. I’m glad I kept going, but looking back, I also wish I had understood earlier how much realistic planning and a manageable pace could help.",
@@ -39,49 +40,70 @@ export const snapboxProject = {
   },
   tools: ["JavaScript", "Node.js", "Express", "PostgreSQL", "Supabase"],
   stack: {
-    preview: ["javascript", "nodejs", "express", "supabase", "postgresql", "cloudinary"],
-    highlights: ["Auth & permissions", "Realtime updates", "2D mapping", "Edge Functions"],
+    preview: [
+      "javascript",
+      "nodejs",
+      "express",
+      "supabase",
+      "postgresql",
+      "cloudinary",
+    ],
+    highlights: [
+      "Auth & permissions",
+      "Realtime updates",
+      "2D mapping",
+      "Edge Functions",
+    ],
     groups: [
       {
         name: "Frontend",
         technologies: ["html", "css", "javascript", "bootstrap"],
-        description: "Responsive pages and interactive customer, business, and admin interfaces.",
+        description:
+          "Responsive pages and interactive customer, business, and admin interfaces.",
       },
       {
         name: "Backend & data",
         technologies: ["nodejs", "express", "supabase", "postgresql"],
-        description: "REST APIs, database functions, and PostGIS location queries connect the application.",
+        description:
+          "REST APIs, database functions, and PostGIS location queries connect the application.",
       },
       {
         name: "Media, maps & hosting",
         technologies: ["cloudinary", "maplibre", "hostinger"],
-        description: "Media delivery, interactive maps, and Hostinger website and email hosting.",
+        description:
+          "Media delivery, interactive maps, and Hostinger website and email hosting.",
       },
     ],
     capabilities: [
       {
         title: "Authentication & access",
-        description: "Supabase Auth supports Google sign-in and account verification. Team permissions and Row Level Security control access to business tools and data.",
+        description:
+          "Supabase Auth supports Google sign-in and account verification. Team permissions and Row Level Security control access to business tools and data.",
       },
       {
         title: "Realtime communication",
-        description: "Private Supabase channels connect messaging and booking updates, including message delivery, read receipts, and presence.",
+        description:
+          "Private Supabase channels connect messaging and booking updates, including message delivery, read receipts, and presence.",
       },
       {
         title: "Maps & location",
-        description: "MapLibre maps bring together location search, nearby booths, and date availability. PostGIS queries and route distances support discovery and travel fees.",
+        description:
+          "MapLibre maps bring together location search, nearby booths, and date availability. PostGIS queries and route distances support discovery and travel fees.",
       },
       {
         title: "APIs & Edge Functions",
-        description: "Express REST endpoints and PostgreSQL functions handle application workflows. Supabase's PostgREST API connects data, while Edge Functions support PDF invoices and SMS.",
+        description:
+          "Express REST endpoints and PostgreSQL functions handle application workflows. Supabase's PostgREST API connects data, while Edge Functions support PDF invoices and SMS.",
       },
       {
         title: "Media & reporting",
-        description: "Cloudinary handles uploaded media and galleries. The system also creates PDF invoices, booking and sales reports, Excel exports, and gallery downloads.",
+        description:
+          "Cloudinary handles uploaded media and galleries. The system also creates PDF invoices, booking and sales reports, Excel exports, and gallery downloads.",
       },
       {
         title: "Notifications & cron jobs",
-        description: "Email and SMS booking updates, with cron jobs for expired payment holds and booking completion.",
+        description:
+          "Email and SMS booking updates, with cron jobs for expired payment holds and booking completion.",
       },
     ],
   },
@@ -102,8 +124,7 @@ export const snapboxProject = {
       id: "discover",
       label: "Discover",
       title: "Browse photobooths",
-      description:
-        "View photobooth listings and locations.",
+      description: "View photobooth listings and locations.",
       image: map,
       imageWidth: 1280,
       imageHeight: 800,
@@ -115,8 +136,7 @@ export const snapboxProject = {
       id: "message",
       label: "Message",
       title: "Message a business",
-      description:
-        "Ask about services and booking details.",
+      description: "Ask about services and booking details.",
       image: messages,
       imageWidth: 1280,
       imageHeight: 800,
@@ -128,11 +148,9 @@ export const snapboxProject = {
       id: "book",
       label: "Book",
       title: "Request a booking",
-      description:
-        "Choose a schedule and package, then send a request.",
+      description: "Choose a schedule and package, then send a request.",
       detailLead: "Payment workflows are simulated for this capstone.",
-      detail:
-        "Customers submit payment proof for business review.",
+      detail: "Customers submit payment proof for business review.",
       image: booking,
       imageWidth: 1280,
       imageHeight: 800,
@@ -144,8 +162,7 @@ export const snapboxProject = {
       id: "manage",
       label: "Manage",
       title: "Manage services and bookings",
-      description:
-        "Update offerings, schedules, bookings, and messages.",
+      description: "Update offerings, schedules, bookings, and messages.",
       image: offerings,
       imageWidth: 1280,
       imageHeight: 800,
