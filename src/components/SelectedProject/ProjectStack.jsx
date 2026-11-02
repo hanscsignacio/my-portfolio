@@ -1,5 +1,6 @@
 import TechnologyList from "./TechnologyList";
 import "./ProjectStack.css";
+import "./ProjectStack.responsive.css";
 
 function ProjectStack({ project }) {
   if (!project.stack?.groups?.length) return null;

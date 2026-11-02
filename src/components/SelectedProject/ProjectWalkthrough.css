@@ -25,21 +25,4 @@
 .project-walkthrough__flow { display: grid; gap: 4rem; padding-top: 2rem; }
 .project-walkthrough[data-flow="true"] .project-walkthrough__card, .project-walkthrough[data-flow="true"] .project-walkthrough__copy { visibility: visible; opacity: 1; }
 
-@media (max-width: 820px) {
-  .project-walkthrough { padding-top: 0; }
-  .project-walkthrough__panel { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; align-items: start; }
-  .project-walkthrough__copy { max-width: 38rem; }
-  .project-walkthrough__copy h3 { font-size: clamp(1.75rem, 4.5vw, 2.25rem); }
-  .project-walkthrough__description, .project-walkthrough__detail { margin-top: 1rem; }
-  .project-walkthrough__label { margin-bottom: 0.75rem; }
-}
 
-@media (max-width: 540px) {
-  .project-walkthrough__nav { flex-wrap: wrap; gap: 0.375rem; }
-  .project-walkthrough__nav button { flex: 0 0 auto; min-width: 4.5rem; padding-inline: 0.75rem; border-color: #dadada; font-size: 0.6875rem; line-height: 1.2; white-space: nowrap; }
-}
-
-@media (forced-colors: active) {
-  .project-walkthrough__image-window { border-color: CanvasText; }
-  .project-walkthrough__nav button[aria-current] { outline: 2px solid Highlight; }
-}

@@ -1,5 +1,6 @@
 import { projectTechnologies } from "./projectTechnologies";
 import "./TechnologyList.css";
+import "./TechnologyList.responsive.css";
 
 function TechnologyList({ items, label }) {
   if (!items?.length) return null;
