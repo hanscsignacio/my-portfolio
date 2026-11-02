@@ -3,6 +3,7 @@ import { useMotion } from "../../hooks/useMotion";
 import { useWalkthroughScene } from "./useWalkthroughScene";
 import WalkthroughPanel from "./WalkthroughPanel";
 import "./ProjectWalkthrough.css";
+import "./ProjectWalkthrough.responsive.css";
 
 function ProjectWalkthrough({ project, isOpen, scrollerRef }) {
   const rootRef = useRef(null);

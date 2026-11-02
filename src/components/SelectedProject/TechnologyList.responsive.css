@@ -1,0 +1,9 @@
+@media (max-width: 540px) {
+  .project-technologies {
+    gap: 1.25rem 1.5rem;
+  }
+  .project-technologies li {
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+  }
+}
